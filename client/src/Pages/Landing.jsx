@@ -1,4 +1,9 @@
+import { useNavigate } from "react-router-dom";
+
+
 const Landing = () => {
+  const navigate = useNavigate();
+  
   return (
     <div className="landing">
       <section className="landing-section-1">
@@ -29,7 +34,7 @@ const Landing = () => {
                 issues.
               </p>
               <div className="flex flex-col gap-y-4 items-center">
-                <button className="btn btn-primary text-zinc-100">
+                <button onClick={() => navigate('/login')} className="btn btn-primary text-zinc-100">
                   Administrator Login
                 </button>
                 <button className="btn btn-primary text-zinc-100">
@@ -57,7 +62,7 @@ const Landing = () => {
                 status, and use AI to get suggestions based on previous network
                 data to avoid network issues due to weather conditions.
               </p>
-              <button className="btn btn-primary">Get Started</button>
+              <button className="btn btn-primary"  onClick={() => navigate('/login')}>Get Started</button>
             </div>
           </div>
         </div>
