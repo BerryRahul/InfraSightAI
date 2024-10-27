@@ -7,8 +7,8 @@ from bson.objectid import ObjectId  # Import ObjectId for MongoDB documents
 app = Flask(__name__)
 
 # MongoDB configuration
-app.config["MONGO_URI"] = ("mongodb+srv://jiyag:awdqse123@cluster0.qataj."
-                           "mongodb.net/tower_data")
+app.config["MONGO_URI"] = ("mongodb+srv://rahuldb:rahul@cluster0.qataj.mongodb"
+                           ".net/tower_data?retryWrites=true&w=majority")
 client = MongoClient(app.config["MONGO_URI"])
 db = client["telecom_db"]  # Database name
 collection = db["tower_data"]  # Collection name
