@@ -5,7 +5,7 @@ import openai
 import os
 from dotenv import load_dotenv
 from openai import OpenAI
-
+PORT=5001
 load_dotenv()
 app = Flask(__name__)
 
@@ -68,4 +68,4 @@ def get_insights(tower_id):
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, port=5001)

@@ -1,15 +1,8 @@
-import { useNavigate } from "react-router-dom";
-
 const Navbar = () => {
-  const navigate = useNavigate();
-
   return (
     <div className="navbar bg-base-100 fixed top-0 left-0 right-0 z-20 container">
       <div className="flex-1">
-        <a
-          className="btn btn-ghost text-xl text-zinc-200"
-          onClick={() => navigate("/")}
-        >
+        <a className="ml-30 btn btn-ghost text-xl text-zinc-200" href="/">
           InfraSight.AI
         </a>
       </div>
