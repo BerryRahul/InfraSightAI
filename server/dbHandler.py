@@ -1,6 +1,7 @@
 from flask import Flask, jsonify
 from flask_pymongo import PyMongo
 from pymongo import MongoClient
+import certifi
 from bson.objectid import ObjectId  # Import ObjectId for MongoDB documents
 
 app = Flask(__name__)
@@ -8,7 +9,7 @@ app = Flask(__name__)
 # MongoDB cloud cluster configuration
 app.config["MONGO_URI"] = ("mongodb+srv://rahuldb:rahul@cluster0.qataj.mongodb"
                            ".net/tower_data?retryWrites=true&w=majority")
-client = MongoClient(app.config["MONGO_URI"])
+client = MongoClient(app.config["MONGO_URI"], tlsCAFile=certifi.where())
 db = client["telecom_db"]  # Database name
 collection = db["tower_data"]  # Collection name
 mongo = PyMongo(app)
@@ -25,7 +26,6 @@ def get_last_entries():
             entry['_id'] = str(entry['_id'])
 
         # Return the entries as a JSON response
-        print(last_entries)
         return jsonify(last_entries), 200
 
     except Exception as e:
