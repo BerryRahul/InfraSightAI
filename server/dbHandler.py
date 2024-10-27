@@ -6,7 +6,11 @@ from bson.objectid import ObjectId  # Import ObjectId for MongoDB documents
 app = Flask(__name__)
 
 # MongoDB cloud cluster configuration
-app.config["MONGO_URI"] = "mongodb+srv://jiyag:awdqse123@cluster0.qataj.mongodb.net/tower_data"  # Replace with your credentials
+app.config["MONGO_URI"] = ("mongodb+srv://rahuldb:rahul@cluster0.qataj.mongodb"
+                           ".net/tower_data?retryWrites=true&w=majority")
+client = MongoClient(app.config["MONGO_URI"])
+db = client["telecom_db"]  # Database name
+collection = db["tower_data"]  # Collection name
 mongo = PyMongo(app)
 
 # Function to fetch the last 10 entries from the database
@@ -14,7 +18,7 @@ mongo = PyMongo(app)
 def get_last_entries():
     try:
         # Fetch the last 10 documents from the 'tower_data' collection
-        last_entries = list(mongo.db.tower_data.find().sort('_id', -1).limit(10))
+        last_entries = list(collection.find().sort('_id', -1).limit(10))
         
         # Convert ObjectId to string for JSON serialization
         for entry in last_entries:
