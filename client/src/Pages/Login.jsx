@@ -10,8 +10,8 @@ const Login = () => {
       >
         <div className="hero-overlay bg-opacity-60"></div>
         <div className="hero-content flex-col lg:flex-row-reverse container">
-          <div className="text-center lg:text-left container w-2/3">
-            <h1 className="text-5xl font-bold text-zinc-200">Login to InfraSightAI</h1>
+          <div className="text-center lg:text-left container w-2/3 flex flex-col justify-center items-center">
+            <h1 className="text-5xl font-bold text-zinc-200 w-3/4">Administrator login to InfraSight AI</h1>
             <p className="py-6 text-zinc-200">
               Login to your account to monitor your infrastructure in real-time with AI assisted suggestions based on previous network data to avoid network issues due to weather conditions.
             </p>
